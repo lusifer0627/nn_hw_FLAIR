@@ -2,7 +2,7 @@
 
 1. Clone 專案並建立環境
 ```
-git clone 
+git clone https://github.com/lusifer0627/nn_hw_FLAIR.git
 cd flair
 
 python3.12 -m venv flair_env
