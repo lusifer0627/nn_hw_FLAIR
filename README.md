@@ -1,6 +1,6 @@
 # nn_hw_FLAIR
 
-## 1. Clone 專案並建立環境
+## 1. Clone 專案後解壓縮並建立環境
 ```bash 
 git clone https://github.com/lusifer0627/nn_hw_FLAIR.git
 cd flair
