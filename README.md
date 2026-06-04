@@ -6,7 +6,7 @@
 # 使用方法比較
 |方法|訓練資料量|說明|
 |:-:|:-:|:-:|
-|flair pre-train model|CC3M|預訓練模型flair-cc3m-recap|
+|flair pre-train model|30M|預訓練模型FLAIR 30M|
 |Full Data|Flickr30K|多資料 baseline|
 |Low Data|Flickr1K|少資料 baseline|
 |Low Data + Knowledge Distillation|Flickr1K|少資料知識蒸餾|
@@ -29,7 +29,7 @@ pip install --upgrade pip
 pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu124
 ```
 
-## 3. 執行train.py進行訓練
+## 3. 進行訓練與驗證
 ### 1. Full Data 30K baseline
 * 訓練
 
@@ -82,7 +82,11 @@ python train.py --train-size 1000 --eval-size 1000 --batch-size 16 --epochs 10 -
 python eval.py --ckpt experiments_3080/results/low_1k_kd_fewshot/student_final.pt --max-samples 1000 --batch-size 64 --seed 42
 ```
 
-## 4. 執行eval.py進行驗證
-
-## 5. 執行結果
-
+## 4. 執行結果
+|方法|I2T R@1|I2T R@5|T2I R@1|T2I R@5|
+|:-:|:-:|:-:|:-:|:-:|
+|FLAIR 30M|94.7|99.3|81.1|94.9|
+|Full Data|80.2|96.5|84.3|96.2|
+|Low Data|70.8|90.7|72.9|92.7|
+|Low Data + Knowledge Distillation|79.8|95.8|80.8|96.0|
+|Low Data + Knowledge Distillation + Few-shot|80.7|96.2|83.5|96.2|
