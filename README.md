@@ -1,4 +1,5 @@
 # nn_hw_FLAIR
+* [Flair](https://github.com/ExplainableML/flair)
 
 ## 1. Clone 專案並建立環境
 ```bash 
