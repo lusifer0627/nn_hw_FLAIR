@@ -1,5 +1,7 @@
 # nn_hw_FLAIR
-* [Flair](https://github.com/ExplainableML/flair)
+* [Flair GitHub](https://github.com/ExplainableML/flair)
+
+* 由於模型所使用之資料集CC3M過於龐大，且使用8張A100進行訓練，單靠單張RTX 3080無法有效復現出論文中的效能，因此希望使用較小規模的Flickr30K進行訓練集驗證，並且驗證資料量少的情況下，加入少樣本學習方法對於模型效能的影響。
 
 ## 1. Clone 專案並建立環境
 ```bash 
