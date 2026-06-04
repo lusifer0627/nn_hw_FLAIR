@@ -30,3 +30,6 @@ pip install torch torchvision torchaudio --index-url https://download.pytorch.or
 ## 3. 執行train.py進行訓練
 
 ## 4. 執行eval.py進行驗證
+
+## 5. 執行結果
+
