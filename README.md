@@ -12,13 +12,15 @@
 |Low Data + Knowledge Distillation|Flickr1K|少資料知識蒸餾|
 |Low Data + Knowledge Distillation + Few-shot|Flickr1K|少資料知識蒸餾 + Few shot|
 
-## 1. Clone 專案並建立環境
+## 1. Clone 專案並建立 WSL 環境
+* 在WSL上運行
+
 ```bash 
 git clone https://github.com/lusifer0627/nn_hw_FLAIR.git
 cd flair
 
-python3.12 -m venv flair_env
-source flair_env/bin/activate
+python3.12 -m venv my_env
+source my_env/bin/activate
 ```
 
 ## 2. 安裝套件
@@ -28,6 +30,57 @@ pip install torch torchvision torchaudio --index-url https://download.pytorch.or
 ```
 
 ## 3. 執行train.py進行訓練
+### 1. Full Data 30K baseline
+* 訓練
+
+```python 
+python train.py --train-size 30000 --eval-size 1000 --batch-size 16 --epochs 2 --lr 1e-6 --output-dir experiments_3080/results/full_30k
+```
+
+* 驗證
+
+```python
+python eval.py --ckpt experiments_3080/results/full_30k/student_final.pt --max-samples 1000 --batch-size 64 --seed 42
+```
+
+### 2. Low Data 1K baseline
+* 訓練
+
+```python
+python train.py --train-size 1000 --eval-size 1000 --batch-size 16 --epochs 10 --lr 1e-5 --output-dir experiments_3080/results/low_1k
+```
+
+* 驗證
+
+```python
+python eval.py --ckpt experiments_3080/results/low_1k/student_final.pt --max-samples 1000 --batch-size 64 --seed 42
+```
+
+### 3. Low Data 1K + Knowledge Distillation
+* 訓練
+
+```python
+python train.py --train-size 1000 --eval-size 1000 --batch-size 16 --epochs 5 --lr 1e-5 --use-kd --kd-alpha 0.5 --output-dir experiments_3080/results/low_1k_kd
+```
+
+* 驗證
+
+```python
+python eval.py --ckpt experiments_3080/results/low_1k_kd/student_final.pt --max-samples 1000 --batch-size 64 --seed 42
+```
+
+### 4. Low Data 1K + Knowledge Distillation + Few-shot
+* 訓練
+
+```python
+python train.py --train-size 1000 --eval-size 1000 --batch-size 16 --epochs 10 --lr 5e-6 --use-kd --kd-alpha 0.7 --fewshot-aug --output-dir experiments_3080/results/low_1k_kd_fewshot
+```
+
+* 驗證
+
+```python
+python eval.py --ckpt experiments_3080/results/low_1k_kd_fewshot/student_final.pt --max-samples 1000 --batch-size 64 --seed 42
+```
 
 ## 4. 執行eval.py進行驗證
 
