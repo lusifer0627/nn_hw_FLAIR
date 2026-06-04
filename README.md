@@ -16,7 +16,7 @@
 * 在WSL上運行
 
 ```bash 
-git clone https://github.com/lusifer0627/nn_hw_FLAIR.git
+git clone https://github.com/lusifer0627/nn_hw_final_project.git
 cd flair
 
 python3.12 -m venv my_env
