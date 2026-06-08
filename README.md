@@ -86,7 +86,7 @@ python eval.py --ckpt experiments_3080/results/low_1k_kd_fewshot/student_final.p
 |方法|I2T R@1|I2T R@5|T2I R@1|T2I R@5|
 |:-:|:-:|:-:|:-:|:-:|
 |FLAIR 30M|94.7|99.3|81.1|94.9|
-|Full Data|80.2|96.5|84.3|96.2|
+|Full Data|81.8|97.1|84.9|96.6|
 |Low Data|70.8|90.7|72.9|92.7|
 |Low Data + Knowledge Distillation|79.8|95.8|80.8|96.0|
 |Low Data + Knowledge Distillation + Few-shot|80.7|96.2|83.5|96.2|
